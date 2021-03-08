@@ -1,10 +1,13 @@
 import React from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+import Home from "./routes/Home";
 
 const Main = () => {
 	return (
-		<div>
-			<h1>Main</h1>
-		</div>
+		<Switch>
+			<Route exact path="/home" component={Home} />
+			<Redirect exact from="/" to="/home" />
+		</Switch>
 	);
 };
 

@@ -1,3 +1,4 @@
+import "./sass/styles.scss";
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -7,5 +8,5 @@ ReactDOM.render(
 	<Router>
 		<Main />
 	</Router>,
-	document.body
+	document.getElementById("react")
 );
