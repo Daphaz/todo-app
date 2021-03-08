@@ -1,7 +1,29 @@
 .header {
+	@extend %flex-align;
+	font-size: 0.5em;
 	grid-area: header;
-	background-color: lightblue;
-	padding-left: 1.5rem;
+	.searchBar {
+		@extend %flex-align;
+		svg {
+			cursor: pointer;
+			margin-right: 0.2rem;
+			color: $grey;
+		}
+		input {
+			font-family: $font;
+			font-size: 1em;
+			border: none;
+			background-color: transparent;
+			&::placeholder {
+				color: $grey;
+				font-family: $font;
+				font-weight: 400;
+			}
+			&:focus {
+				outline: none;
+			}
+		}
+	}
 }
 .sidebar {
 	grid-area: side;

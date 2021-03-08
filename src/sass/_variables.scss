@@ -1,5 +1,5 @@
 :root {
-	--white-color: #f1f3f8;
+	--white-color: #fff;
 	--black-color: #31291d;
 	--grey-color: #bec5d7;
 	--yellow-color: #f5972c;
@@ -8,13 +8,13 @@
 	--blue-color: #0aa4f6;
 	--green-color: #c6d947;
 }
-$white: #f1f3f8;
-$black: #31291d;
-$grey: #bec5d7;
-$yellow: #f5972c;
-$orange: #f3542a;
-$purple: #7049f0;
-$blue: #0aa4f6;
-$green: #c6d947;
+$white: var(--white-color);
+$black: var(--black-color);
+$grey: var(--grey-color);
+$yellow: var(--yellow-color);
+$orange: var(--orange-color);
+$purple: var(--purple-color);
+$blue: var(--blue-color);
+$green: var(--green-color);
 
 $font: "Rubik", sans-serif;
