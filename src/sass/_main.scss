@@ -48,3 +48,11 @@ p {
 		grid-template-rows: 50px 1fr 50px;
 	}
 }
+
+.btn {
+	@extend %flex-center;
+	background-color: transparent;
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
