@@ -1,0 +1,50 @@
+.todo_list {
+	display: flex;
+	flex-wrap: wrap;
+	height: 100%;
+	padding: 1rem 0;
+}
+.todo {
+	@extend %flex-col;
+	justify-content: space-between;
+	background-color: $yellow;
+	height: 300px;
+	width: 300px;
+	border-radius: 20px;
+	padding: 0.5rem;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+	textarea {
+		width: 90%;
+		height: 100%;
+		resize: none;
+		border: none;
+		font-size: 0.5em;
+		font-family: $font;
+		line-height: 150%;
+		font-weight: 400;
+		background-color: transparent;
+		outline: none;
+		color: $black;
+		&::placeholder {
+			color: $black;
+			font-family: $font;
+			line-height: 150%;
+			font-weight: 400;
+		}
+	}
+	footer {
+		@extend %flex-align;
+		justify-content: space-between;
+		font-size: 0.5em;
+		font-weight: 500;
+		.btn_edit {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background-color: $black;
+			color: $white;
+			font-size: 1em;
+			box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+		}
+	}
+}
