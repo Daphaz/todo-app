@@ -31,7 +31,7 @@
 	grid-area: side;
 	border-right: 1px solid $grey;
 	.logo {
-		height: 10%;
+		margin-bottom: 2rem;
 	}
 	a {
 		font-weight: 500;
@@ -40,7 +40,7 @@
 		text-decoration: none;
 	}
 	.color_items {
-		height: 90%;
+		height: 100%;
 		width: 100%;
 		margin-top: 0.5rem;
 	}
@@ -58,6 +58,7 @@
 .content {
 	grid-area: content;
 	padding-left: 1.5rem;
+	padding-bottom: 33px;
 }
 .footer {
 	grid-area: footer;
@@ -75,6 +76,7 @@
 	justify-content: center;
 }
 .dot {
+	cursor: pointer;
 	margin: 0px auto;
 	position: absolute;
 	top: -40px;

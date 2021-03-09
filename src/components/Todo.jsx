@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { AiFillEdit } from "react-icons/ai";
+import { AiFillEdit, AiFillSave } from "react-icons/ai";
 
-export const Todo = () => {
+export const Todo = ({ items }) => {
 	const [edit, setEdit] = useState(true);
 
 	const handleClick = () => {
@@ -9,7 +9,9 @@ export const Todo = () => {
 	};
 
 	return (
-		<div className="todo">
+		<div
+			className="todo"
+			style={{ backgroundColor: items.color, order: -items.id }}>
 			<textarea
 				name="text"
 				minLength="1"
@@ -22,7 +24,7 @@ export const Todo = () => {
 					className="btn btn_edit"
 					aria-label="edit task"
 					onClick={handleClick}>
-					<AiFillEdit />
+					{edit ? <AiFillEdit /> : <AiFillSave />}
 				</button>
 			</footer>
 		</div>

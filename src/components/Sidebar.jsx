@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { RiAddLine } from "react-icons/ri";
 import anime from "animejs";
 
-export const Sidebar = () => {
+export const Sidebar = ({ setAdd, add }) => {
 	const [toggle, setToggle] = useState(true);
 	const [btnDisable, setBtnDisable] = useState(false);
 
@@ -73,6 +73,10 @@ export const Sidebar = () => {
 		setToggle(!toggle);
 	};
 
+	const handleAddTodo = (color) => {
+		setAdd([...add, { id: add[add.length - 1].id + 1, color }]);
+	};
+
 	return (
 		<aside className="sidebar">
 			<div className="logo">
@@ -88,11 +92,31 @@ export const Sidebar = () => {
 						<RiAddLine />
 					</button>
 					<div className="dots">
-						<div className="dot d1" data-from="0" data-to="80"></div>
-						<div className="dot d2 other" data-from="100" data-to="140"></div>
-						<div className="dot d3 other" data-from="160" data-to="200"></div>
-						<div className="dot d4 other" data-from="220" data-to="260"></div>
-						<div className="dot d5 other" data-from="280" data-to="320"></div>
+						<div
+							className="dot d1"
+							data-from="0"
+							data-to="80"
+							onClick={() => handleAddTodo("var(--yellow-color)")}></div>
+						<div
+							className="dot d2 other"
+							data-from="100"
+							data-to="140"
+							onClick={() => handleAddTodo("var(--orange-color)")}></div>
+						<div
+							className="dot d3 other"
+							data-from="160"
+							data-to="200"
+							onClick={() => handleAddTodo("var(--purple-color)")}></div>
+						<div
+							className="dot d4 other"
+							data-from="220"
+							data-to="260"
+							onClick={() => handleAddTodo("var(--blue-color)")}></div>
+						<div
+							className="dot d5 other"
+							data-from="280"
+							data-to="320"
+							onClick={() => handleAddTodo("var(--green-color)")}></div>
 					</div>
 				</div>
 				<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
