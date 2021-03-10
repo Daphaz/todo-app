@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiFillEdit, AiFillSave } from "react-icons/ai";
 
-export const Todo = ({ items }) => {
+export const Todo = ({ items, classAnimation }) => {
 	const [edit, setEdit] = useState(true);
 
 	const handleClick = () => {
@@ -10,7 +10,8 @@ export const Todo = ({ items }) => {
 
 	return (
 		<div
-			className="todo"
+			className={`todo ${classAnimation}`}
+			id={`todo${items.id}`}
 			style={{ backgroundColor: items.color, order: -items.id }}>
 			<textarea
 				name="text"
