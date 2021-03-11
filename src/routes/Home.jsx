@@ -2,11 +2,10 @@ import React from "react";
 import { Layout } from "../components";
 import ListTodo from "../components/ListTodo";
 
-const Home = () => {
+const Home = (props) => {
 	return (
 		<Layout>
-			<h1>Notes</h1>
-			<ListTodo />
+			<ListTodo title="Notes" {...props} />
 		</Layout>
 	);
 };

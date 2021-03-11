@@ -1,9 +1,17 @@
 import React from "react";
-import { AiFillEdit, AiFillSave } from "react-icons/ai";
+import { AiFillEdit, AiFillSave, AiOutlineEye } from "react-icons/ai";
 
-export const Todo = ({ item, editToggle }) => {
+export const Todo = ({ item, editToggle, history }) => {
 	const handleClick = () => {
 		editToggle(item.id);
+	};
+
+	const handleViewTodo = () => {
+		if (!item.edit) {
+			history.push(`/home/${item.id}`);
+		} else {
+			return;
+		}
 	};
 
 	return (
@@ -33,6 +41,9 @@ export const Todo = ({ item, editToggle }) => {
 				disabled={!item.edit}></textarea>
 			<footer>
 				<div className="date_todo">{item.createdAt}</div>
+				<div className="show_todo" onClick={handleViewTodo}>
+					<AiOutlineEye />
+				</div>
 				<button
 					className="btn btn_edit"
 					aria-label="edit task"

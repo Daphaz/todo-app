@@ -67,3 +67,22 @@
 		background-color: $green;
 	}
 }
+
+//Return Btn
+.return_btn {
+	@extend %flex-center;
+	cursor: pointer;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: $black;
+	font-size: 0.8em;
+	transform: rotate(-90deg);
+	transition: transform 0.3s ease;
+	svg {
+		color: $white;
+	}
+	&:hover {
+		transform: rotate(-90deg) scale(1.2);
+	}
+}

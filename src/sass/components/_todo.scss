@@ -52,8 +52,17 @@
 			box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
 			z-index: 1;
 		}
+		.show_todo {
+			cursor: pointer;
+			color: $black;
+			transition: transform 0.3s ease;
+			&:hover {
+				transform: scale(1.2) rotate(35deg);
+			}
+		}
 	}
 	.todo_label {
+		pointer-events: none;
 		position: absolute;
 		right: -190px;
 		bottom: -155px;
@@ -90,5 +99,19 @@
 		margin-right: 0.5em;
 		padding: 0.5em;
 		opacity: 1;
+	}
+}
+
+//one todo
+.container_todo {
+	width: 100%;
+	height: 100%;
+	padding: 1em 0.5em 2em 0;
+	@include media-max("425px") {
+		padding: 0.5em 0.5em 1.5em 0;
+	}
+	.one_todo {
+		width: 100%;
+		height: 100%;
 	}
 }

@@ -15,13 +15,16 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-const ListTodo = ({ todos, editToggle }) => {
+const ListTodo = ({ todos, editToggle, title, history }) => {
 	return (
-		<div className="todo_list">
-			{todos.map((t) => (
-				<Todo key={t.id} item={t} editToggle={editToggle} />
-			))}
-		</div>
+		<>
+			<h1>{title}</h1>
+			<div className="todo_list">
+				{todos.map((t) => (
+					<Todo key={t.id} item={t} editToggle={editToggle} history={history} />
+				))}
+			</div>
+		</>
 	);
 };
 
