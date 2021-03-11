@@ -1,2 +1,3 @@
 @import "./variables", "./placeholders", "./mixins", "./main";
-@import "./components/layout";
+@import "./components/header", "./components/layout", "./components/sidebar",
+	"./components/todo";
