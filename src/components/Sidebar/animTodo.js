@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import anime from "animejs";
 
-const AnimTodo = (setAdd, add) => {
+const AnimTodo = (addTodo) => {
 	const [width, setWidth] = useState(window.innerWidth);
 	const pathcircle =
 		"M32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16Z";
@@ -25,15 +25,7 @@ const AnimTodo = (setAdd, add) => {
 			width > 768 ? el.getAttribute("data-x") : el.getAttribute("data-x") - 45;
 		const Y =
 			width > 768 ? el.getAttribute("data-y") : el.getAttribute("data-y") - 10;
-
-		setAdd([
-			...add,
-			{
-				id: add[add.length - 1].id + 1,
-				color,
-				classAnimation: "start_animation",
-			},
-		]);
+		const label = el.getAttribute("data-label");
 
 		const allReset = () => {
 			const dot = document.querySelector(dName);
@@ -50,6 +42,7 @@ const AnimTodo = (setAdd, add) => {
 			translateY: Y,
 			duration: 600,
 			easing: "easeInOutSine",
+			complete: () => addTodo(color, "start_animation", label),
 		}).add({
 			targets: `${dName} .shape`,
 			d: [{ value: pathBig }],

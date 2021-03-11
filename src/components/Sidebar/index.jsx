@@ -4,9 +4,9 @@ import { RiAddLine } from "react-icons/ri";
 import AnimationDots from "./animationDots";
 import AnimTodo from "./animTodo";
 
-export const Sidebar = ({ setAdd, add }) => {
+export const Sidebar = ({ addTodo }) => {
 	const { handleClick, btnDisable } = AnimationDots();
-	const { handleAddTodo } = AnimTodo(setAdd, add);
+	const { handleAddTodo } = AnimTodo(addTodo);
 
 	return (
 		<aside className="sidebar">
@@ -28,7 +28,12 @@ export const Sidebar = ({ setAdd, add }) => {
 							data-from="0"
 							data-to="80"
 							onClick={() => handleAddTodo("var(--yellow-color)", ".d1Svg")}>
-							<div className="d1Svg" id="pointerSvg" data-x="132" data-y="-43">
+							<div
+								className="d1Svg"
+								id="pointerSvg"
+								data-x="138"
+								data-y="-46"
+								data-label="shopping">
 								<svg
 									width="300"
 									height="300"
@@ -48,7 +53,12 @@ export const Sidebar = ({ setAdd, add }) => {
 							data-from="100"
 							data-to="140"
 							onClick={() => handleAddTodo("var(--orange-color)", ".d2Svg")}>
-							<div className="d2Svg" id="pointerSvg" data-x="132" data-y="-103">
+							<div
+								className="d2Svg"
+								id="pointerSvg"
+								data-x="138"
+								data-y="-106"
+								data-label="important">
 								<svg
 									width="300"
 									height="300"
@@ -68,7 +78,12 @@ export const Sidebar = ({ setAdd, add }) => {
 							data-from="160"
 							data-to="200"
 							onClick={() => handleAddTodo("var(--purple-color)", ".d3Svg")}>
-							<div className="d3Svg" id="pointerSvg" data-x="132" data-y="-162">
+							<div
+								className="d3Svg"
+								id="pointerSvg"
+								data-x="138"
+								data-y="-166"
+								data-label="personal">
 								<svg
 									width="300"
 									height="300"
@@ -88,7 +103,12 @@ export const Sidebar = ({ setAdd, add }) => {
 							data-from="220"
 							data-to="260"
 							onClick={() => handleAddTodo("var(--blue-color)", ".d4Svg")}>
-							<div className="d4Svg" id="pointerSvg" data-x="132" data-y="-222">
+							<div
+								className="d4Svg"
+								id="pointerSvg"
+								data-x="138"
+								data-y="-226"
+								data-label="work">
 								<svg
 									width="300"
 									height="300"
@@ -108,7 +128,12 @@ export const Sidebar = ({ setAdd, add }) => {
 							data-from="280"
 							data-to="320"
 							onClick={() => handleAddTodo("var(--green-color)", ".d5Svg")}>
-							<div className="d5Svg" id="pointerSvg" data-x="132" data-y="-282">
+							<div
+								className="d5Svg"
+								id="pointerSvg"
+								data-x="138"
+								data-y="-286"
+								data-label="sport">
 								<svg
 									width="300"
 									height="300"

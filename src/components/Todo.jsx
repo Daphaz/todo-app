@@ -1,31 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 import { AiFillEdit, AiFillSave } from "react-icons/ai";
 
-export const Todo = ({ items, classAnimation }) => {
-	const [edit, setEdit] = useState(true);
-
+export const Todo = ({ item, editToggle }) => {
 	const handleClick = () => {
-		setEdit(!edit);
+		editToggle(item.id);
 	};
 
 	return (
 		<div
-			className={`todo ${classAnimation}`}
-			id={`todo${items.id}`}
-			style={{ backgroundColor: items.color, order: -items.id }}>
+			className={`todo ${item.classAnimation}`}
+			id={`todo${item.id}`}
+			style={{ backgroundColor: item.color, order: -item.id }}>
 			<textarea
 				name="text"
 				minLength="1"
 				maxLength="500"
-				placeholder="The beginning of screenless design: UI jobs to be take over by Solution Architect"
-				disabled={edit}></textarea>
+				placeholder={item.placeholder}
+				disabled={!item.edit}></textarea>
 			<footer>
-				<div>March 09,2021</div>
+				<div>{item.createdAt}</div>
 				<button
 					className="btn btn_edit"
 					aria-label="edit task"
 					onClick={handleClick}>
-					{edit ? <AiFillEdit /> : <AiFillSave />}
+					{!item.edit ? <AiFillEdit /> : <AiFillSave />}
 				</button>
 			</footer>
 		</div>

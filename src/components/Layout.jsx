@@ -4,11 +4,11 @@ import { Sidebar } from "./Sidebar";
 import { Content } from "./Content";
 import { Footer } from "./Footer";
 
-export const Layout = ({ children, setAdd, add }) => {
+export const Layout = ({ todos, children, addTodo }) => {
 	return (
 		<div className="grid_container">
 			<Header />
-			<Sidebar setAdd={setAdd} add={add} />
+			<Sidebar todos={todos} addTodo={addTodo} />
 			<Content>{children}</Content>
 			<Footer />
 		</div>
