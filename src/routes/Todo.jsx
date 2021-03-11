@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { editToggle } from "../redux/actionCreator";
 import { AiFillEdit, AiFillSave } from "react-icons/ai";
 import { Redirect } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const mapStateToProps = (state) => {
 	return {
@@ -16,6 +17,8 @@ const mapDispatchToProps = (dispatch) => {
 		editToggle: (id) => dispatch(editToggle(id)),
 	};
 };
+
+const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
 
 const Todo = ({ todos, match, editToggle }) => {
 	const id = parseInt(match.params.id);
@@ -31,7 +34,11 @@ const Todo = ({ todos, match, editToggle }) => {
 				<Layout returnBtn>
 					<h1 style={{ color: todo[0].color }}>{todo[0].label}</h1>
 					<div className="container_todo">
-						<div
+						<motion.div
+							transition={transition}
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
 							className="todo one_todo"
 							style={{ backgroundColor: todo[0].color }}>
 							<textarea
@@ -49,7 +56,7 @@ const Todo = ({ todos, match, editToggle }) => {
 									{!todo[0].edit ? <AiFillEdit /> : <AiFillSave />}
 								</button>
 							</footer>
-						</div>
+						</motion.div>
 					</div>
 				</Layout>
 			) : (

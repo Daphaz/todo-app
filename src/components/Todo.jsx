@@ -1,17 +1,13 @@
 import React from "react";
 import { AiFillEdit, AiFillSave, AiOutlineEye } from "react-icons/ai";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
-export const Todo = ({ item, editToggle, history }) => {
+const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
+
+export const Todo = ({ item, editToggle }) => {
 	const handleClick = () => {
 		editToggle(item.id);
-	};
-
-	const handleViewTodo = () => {
-		if (!item.edit) {
-			history.push(`/home/${item.id}`);
-		} else {
-			return;
-		}
 	};
 
 	return (
@@ -19,7 +15,10 @@ export const Todo = ({ item, editToggle, history }) => {
 			className={`todo ${item.classAnimation}`}
 			id={`todo${item.id}`}
 			style={{ backgroundColor: item.color, order: -item.id }}>
-			<span className="todo_label">
+			<motion.span
+				transition={{ ...transition, delay: 0.3 }}
+				exit={{ opacity: 0 }}
+				className="todo_label">
 				<svg viewBox="0 0 500 500">
 					<path
 						fill="transparent"
@@ -32,7 +31,7 @@ export const Todo = ({ item, editToggle, history }) => {
 						</textPath>
 					</text>
 				</svg>
-			</span>
+			</motion.span>
 			<textarea
 				name="text"
 				minLength="1"
@@ -41,9 +40,14 @@ export const Todo = ({ item, editToggle, history }) => {
 				disabled={!item.edit}></textarea>
 			<footer>
 				<div className="date_todo">{item.createdAt}</div>
-				<div className="show_todo" onClick={handleViewTodo}>
-					<AiOutlineEye />
-				</div>
+				<Link to={`/home/${item.id}`}>
+					<motion.div
+						className="show_todo"
+						transition={{ ...transition, delay: 0.2 }}
+						exit={{ opacity: 0 }}>
+						<AiOutlineEye />
+					</motion.div>
+				</Link>
 				<button
 					className="btn btn_edit"
 					aria-label="edit task"

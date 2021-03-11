@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.1.10",
     "animejs": "^3.2.1",
     "dayjs": "^1.10.4",
+    "framer-motion": "^3.10.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
