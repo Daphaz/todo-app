@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 export const TODO = [
 	{
 		id: 0,
@@ -5,9 +7,8 @@ export const TODO = [
 		classAnimation: "",
 		label: "important",
 		edit: false,
-		placeholder:
-			"The beginning of screenless design: UI jobs to be take over by Solution Architect",
-		createdAt: "March 09,2021",
+		placeholder: "“Someday is not a day of the week.” —Janet Dailey",
+		createdAt: dayjs().format("MMMM DD,YYYY"),
 		isDo: false,
 	},
 ];
