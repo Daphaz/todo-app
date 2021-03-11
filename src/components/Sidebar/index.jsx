@@ -3,8 +3,23 @@ import { Link } from "react-router-dom";
 import { RiAddLine } from "react-icons/ri";
 import AnimationDots from "./animationDots";
 import AnimTodo from "./animTodo";
+import { connect } from "react-redux";
+import { addTodo } from "../../redux/actionCreator";
 
-export const Sidebar = ({ addTodo }) => {
+const mapStateToProps = (state) => {
+	return {
+		todos: state.todos,
+	};
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		addTodo: (color, classAnimation, label) =>
+			dispatch(addTodo(color, classAnimation, label)),
+	};
+};
+
+const Sidebar = ({ addTodo }) => {
 	const { handleClick, btnDisable } = AnimationDots();
 	const { handleAddTodo } = AnimTodo(addTodo);
 
@@ -22,7 +37,9 @@ export const Sidebar = ({ addTodo }) => {
 						disabled={btnDisable}>
 						<RiAddLine />
 					</button>
-					<div className="dots">
+					<div
+						className="dots"
+						style={{ pointerEvents: btnDisable ? "none" : "visible" }}>
 						<div
 							className="dot d1"
 							data-from="0"
@@ -176,3 +193,5 @@ export const Sidebar = ({ addTodo }) => {
 		</aside>
 	);
 };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

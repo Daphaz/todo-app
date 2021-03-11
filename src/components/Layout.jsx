@@ -1,14 +1,14 @@
 import React from "react";
 import { Header } from "./Header";
-import { Sidebar } from "./Sidebar";
+import Sidebar from "./Sidebar";
 import { Content } from "./Content";
 import { Footer } from "./Footer";
 
-export const Layout = ({ todos, children, addTodo }) => {
+export const Layout = ({ children }) => {
 	return (
 		<div className="grid_container">
 			<Header />
-			<Sidebar todos={todos} addTodo={addTodo} />
+			<Sidebar />
 			<Content>{children}</Content>
 			<Footer />
 		</div>

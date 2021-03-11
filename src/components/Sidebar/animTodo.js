@@ -27,6 +27,8 @@ const AnimTodo = (addTodo) => {
 			width > 768 ? el.getAttribute("data-y") : el.getAttribute("data-y") - 10;
 		const label = el.getAttribute("data-label");
 
+		addTodo(color, "start_animation", label);
+
 		const allReset = () => {
 			const dot = document.querySelector(dName);
 			const todo = document.querySelector(".todo.start_animation");
@@ -42,7 +44,6 @@ const AnimTodo = (addTodo) => {
 			translateY: Y,
 			duration: 600,
 			easing: "easeInOutSine",
-			complete: () => addTodo(color, "start_animation", label),
 		}).add({
 			targets: `${dName} .shape`,
 			d: [{ value: pathBig }],

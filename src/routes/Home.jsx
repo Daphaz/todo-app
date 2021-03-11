@@ -1,16 +1,12 @@
 import React from "react";
 import { Layout } from "../components";
-import { Todo } from "../components/Todo";
+import ListTodo from "../components/ListTodo";
 
-const Home = ({ todos, addTodo, editToggle }) => {
+const Home = () => {
 	return (
-		<Layout todos={todos} addTodo={addTodo}>
+		<Layout>
 			<h1>Notes</h1>
-			<div className="todo_list">
-				{todos.map((t) => (
-					<Todo key={t.id} item={t} editToggle={editToggle} />
-				))}
-			</div>
+			<ListTodo />
 		</Layout>
 	);
 };
