@@ -1,4 +1,4 @@
-import { ADD_TODO, EDIT_TOGGLE } from "./actionType";
+import { ADD_TODO, EDIT_TOGGLE, REMOVE_CLASS_TODO } from "./actionType";
 import { TODO } from "../shared/todo";
 import dayjs from "dayjs";
 import { randomQuote } from "../shared/quotes";
@@ -18,6 +18,10 @@ export const Reducer = (state = initialState, action) => {
 			todo.createdAt = date;
 			todo.placeholder = randomQuote();
 			return { todos: [...state.todos, todo] };
+		case REMOVE_CLASS_TODO:
+			return {
+				todos: state.todos.map((t) => ({ ...t, classAnimation: "" })),
+			};
 		case EDIT_TOGGLE:
 			return {
 				todos: state.todos.map((t) =>

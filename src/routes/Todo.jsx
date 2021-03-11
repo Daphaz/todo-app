@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
+const transition = { duration: 0.3, ease: [0.43, 0.13, 0.23, 0.96] };
 
 const Todo = ({ todos, match, editToggle }) => {
 	const id = parseInt(match.params.id);
@@ -32,7 +32,14 @@ const Todo = ({ todos, match, editToggle }) => {
 		<>
 			{todo.length > 0 ? (
 				<Layout returnBtn>
-					<h1 style={{ color: todo[0].color }}>{todo[0].label}</h1>
+					<motion.h1
+						transition={transition}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						style={{ color: todo[0].color }}>
+						{todo[0].label}
+					</motion.h1>
 					<div className="container_todo">
 						<motion.div
 							transition={transition}

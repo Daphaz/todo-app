@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import anime from "animejs";
 
-const AnimTodo = (addTodo) => {
+const AnimTodo = (addTodo, removeClassTodo, id) => {
 	const [width, setWidth] = useState(window.innerWidth);
 	const pathcircle =
 		"M32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16Z";
@@ -31,11 +31,10 @@ const AnimTodo = (addTodo) => {
 
 		const allReset = () => {
 			const dot = document.querySelector(dName);
-			const todo = document.querySelector(".todo.start_animation");
 			const shape = document.querySelector(`${dName} .shape`);
 			dot.style.transform = "translate(0,0)";
-			todo.classList.remove("start_animation");
 			shape.setAttribute("d", pathcircle);
+			removeClassTodo(id);
 		};
 
 		tl.add({

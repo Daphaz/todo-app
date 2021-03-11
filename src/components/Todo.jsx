@@ -1,9 +1,6 @@
 import React from "react";
 import { AiFillEdit, AiFillSave, AiOutlineEye } from "react-icons/ai";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
-const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
 
 export const Todo = ({ item, editToggle }) => {
 	const handleClick = () => {
@@ -15,10 +12,7 @@ export const Todo = ({ item, editToggle }) => {
 			className={`todo ${item.classAnimation}`}
 			id={`todo${item.id}`}
 			style={{ backgroundColor: item.color, order: -item.id }}>
-			<motion.span
-				transition={{ ...transition, delay: 0.3 }}
-				exit={{ opacity: 0 }}
-				className="todo_label">
+			<span className="todo_label">
 				<svg viewBox="0 0 500 500">
 					<path
 						fill="transparent"
@@ -31,7 +25,7 @@ export const Todo = ({ item, editToggle }) => {
 						</textPath>
 					</text>
 				</svg>
-			</motion.span>
+			</span>
 			<textarea
 				name="text"
 				minLength="1"
@@ -41,12 +35,9 @@ export const Todo = ({ item, editToggle }) => {
 			<footer>
 				<div className="date_todo">{item.createdAt}</div>
 				<Link to={`/home/${item.id}`}>
-					<motion.div
-						className="show_todo"
-						transition={{ ...transition, delay: 0.2 }}
-						exit={{ opacity: 0 }}>
+					<div className="show_todo">
 						<AiOutlineEye />
-					</motion.div>
+					</div>
 				</Link>
 				<button
 					className="btn btn_edit"

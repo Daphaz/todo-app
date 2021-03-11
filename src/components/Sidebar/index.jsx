@@ -4,7 +4,7 @@ import { RiAddLine } from "react-icons/ri";
 import AnimationDots from "./animationDots";
 import AnimTodo from "./animTodo";
 import { connect } from "react-redux";
-import { addTodo } from "../../redux/actionCreator";
+import { addTodo, removeClassTodo } from "../../redux/actionCreator";
 import { AiOutlineUp } from "react-icons/ai";
 
 const mapStateToProps = (state) => {
@@ -17,12 +17,13 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		addTodo: (color, classAnimation, label) =>
 			dispatch(addTodo(color, classAnimation, label)),
+		removeClassTodo: () => dispatch(removeClassTodo()),
 	};
 };
 
-const Sidebar = ({ addTodo, returnBtn }) => {
+const Sidebar = ({ addTodo, removeClassTodo, returnBtn }) => {
 	const { handleClick, btnDisable } = AnimationDots();
-	const { handleAddTodo } = AnimTodo(addTodo);
+	const { handleAddTodo } = AnimTodo(addTodo, removeClassTodo);
 
 	return (
 		<aside className="sidebar">
