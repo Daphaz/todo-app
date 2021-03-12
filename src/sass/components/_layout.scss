@@ -4,6 +4,17 @@
 	padding-bottom: 33px;
 }
 .footer {
+	@extend %flex-align;
+	justify-content: space-between;
 	grid-area: footer;
-	background-color: lightgreen;
+	font-size: 0.6em;
+	padding: 0 1em;
+	color: $black;
+	a {
+		color: inherit;
+	}
+	.copy {
+		@extend %flex-align;
+		height: 100%;
+	}
 }

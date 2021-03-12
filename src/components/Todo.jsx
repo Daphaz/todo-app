@@ -47,6 +47,7 @@ export const Todo = ({ item, editToggle }) => {
 				<Link
 					to={`/home/${item.id}`}
 					className="show_todo"
+					aria-label="see your own todo"
 					style={{
 						color: item.isDo ? "var(--white-color)" : "var(--black-color)",
 					}}>
