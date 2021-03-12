@@ -1,4 +1,9 @@
-import { ADD_TODO, EDIT_TOGGLE, REMOVE_CLASS_TODO } from "./actionType";
+import {
+	ADD_TODO,
+	EDIT_TOGGLE,
+	REMOVE_CLASS_TODO,
+	EDIT_LABEL,
+} from "./actionType";
 
 export const addTodo = (color, classAnimation, label) => ({
 	type: ADD_TODO,
@@ -18,4 +23,13 @@ export const editToggle = (id) => ({
 
 export const removeClassTodo = () => ({
 	type: REMOVE_CLASS_TODO,
+});
+
+export const editLabel = (id, label, color) => ({
+	type: EDIT_LABEL,
+	payload: {
+		id,
+		label,
+		color,
+	},
 });

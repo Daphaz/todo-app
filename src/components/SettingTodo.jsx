@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BiLabel, BiBadgeCheck, BiCog } from "react-icons/bi";
 import animejs from "animejs";
 
-export const SettingTodo = () => {
+export const SettingTodo = ({ idTodo, editLabel }) => {
 	const [toggle, setToggle] = useState(false);
 	const [toggleMenu, setToggleMenu] = useState(false);
 
@@ -93,6 +93,10 @@ export const SettingTodo = () => {
 		setToggleMenu(!toggleMenu);
 	};
 
+	const handleChangeLabel = (label, color) => {
+		editLabel(idTodo, label, color);
+	};
+
 	return (
 		<div className="container_set">
 			<div className="btn_set" onClick={handleClick}>
@@ -100,11 +104,30 @@ export const SettingTodo = () => {
 			</div>
 			<div className="item label" onClick={handleMenu}>
 				<ul className="toolkit">
-					<li>Important</li>
-					<li>Shopping</li>
-					<li>Sport</li>
-					<li>Work</li>
-					<li>Personal</li>
+					<li
+						onClick={() =>
+							handleChangeLabel("important", "var(--orange-color)")
+						}>
+						Important
+					</li>
+					<li
+						onClick={() =>
+							handleChangeLabel("shopping", "var(--yellow-color)")
+						}>
+						Shopping
+					</li>
+					<li onClick={() => handleChangeLabel("sport", "var(--green-color)")}>
+						Sport
+					</li>
+					<li onClick={() => handleChangeLabel("work", "var(--blue-color)")}>
+						Work
+					</li>
+					<li
+						onClick={() =>
+							handleChangeLabel("personal", "var(--purple-color)")
+						}>
+						Personal
+					</li>
 				</ul>
 				<BiLabel />
 			</div>

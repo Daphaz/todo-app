@@ -2,7 +2,7 @@ import React from "react";
 import { Layout } from "../components";
 import { SettingTodo } from "../components/SettingTodo";
 import { connect } from "react-redux";
-import { editToggle } from "../redux/actionCreator";
+import { editToggle, editLabel } from "../redux/actionCreator";
 import { AiFillEdit, AiFillSave } from "react-icons/ai";
 import { Redirect } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -16,12 +16,13 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		editToggle: (id) => dispatch(editToggle(id)),
+		editLabel: (id, label, color) => dispatch(editLabel(id, label, color)),
 	};
 };
 
 const transition = { duration: 0.3, ease: [0.43, 0.13, 0.23, 0.96] };
 
-const Todo = ({ todos, match, editToggle }) => {
+const Todo = ({ todos, match, editToggle, editLabel }) => {
 	const id = parseInt(match.params.id);
 	const todo = todos.filter((t) => t.id === id);
 
@@ -49,7 +50,7 @@ const Todo = ({ todos, match, editToggle }) => {
 							exit={{ opacity: 0 }}
 							className="todo one_todo"
 							style={{ backgroundColor: todo[0].color }}>
-							<SettingTodo />
+							<SettingTodo idTodo={id} editLabel={editLabel} />
 							<textarea
 								name="text"
 								minLength="1"

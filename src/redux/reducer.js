@@ -1,4 +1,9 @@
-import { ADD_TODO, EDIT_TOGGLE, REMOVE_CLASS_TODO } from "./actionType";
+import {
+	ADD_TODO,
+	EDIT_TOGGLE,
+	REMOVE_CLASS_TODO,
+	EDIT_LABEL,
+} from "./actionType";
 import { TODO } from "../shared/todo";
 import dayjs from "dayjs";
 import { randomQuote } from "../shared/quotes";
@@ -26,6 +31,13 @@ export const Reducer = (state = initialState, action) => {
 			return {
 				todos: state.todos.map((t) =>
 					t.id === action.payload.id ? { ...t, edit: !t.edit } : t
+				),
+			};
+		case EDIT_LABEL:
+			const { id, label, color } = action.payload;
+			return {
+				todos: state.todos.map((t) =>
+					t.id === id ? { ...t, color, label } : t
 				),
 			};
 		default:
