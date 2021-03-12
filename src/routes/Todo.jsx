@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const transition = { duration: 0.3, ease: [0.43, 0.13, 0.23, 0.96] };
 
-const Todo = ({ todos, match, editToggle, editLabel, todoDone }) => {
+const Todo = ({ todos, match, editToggle, editLabel, todoDone, ...props }) => {
 	const id = parseInt(match.params.id);
 	const todo = todos.filter((t) => t.id === id);
 
@@ -35,7 +35,7 @@ const Todo = ({ todos, match, editToggle, editLabel, todoDone }) => {
 	return (
 		<>
 			{todo.length > 0 ? (
-				<Layout returnBtn>
+				<Layout returnBtn {...props}>
 					<motion.h1
 						transition={transition}
 						initial={{ opacity: 0 }}

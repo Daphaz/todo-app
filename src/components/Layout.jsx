@@ -4,10 +4,10 @@ import Sidebar from "./Sidebar";
 import { Content } from "./Content";
 import { Footer } from "./Footer";
 
-export const Layout = ({ children, returnBtn }) => {
+export const Layout = ({ children, returnBtn, ...props }) => {
 	return (
 		<div className="grid_container">
-			<Header />
+			<Header {...props} />
 			<Sidebar returnBtn={returnBtn} />
 			<Content>{children}</Content>
 			<Footer />

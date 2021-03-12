@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { RiSearch2Line } from "react-icons/ri";
 
-export const SearchBar = () => {
+export const SearchBar = ({ history }) => {
+	const [searchValue, setSearchValue] = useState("");
+
+	const onSubmit = (e) => {
+		e.preventDefault();
+		history.push("/search", searchValue);
+	};
+
 	return (
-		<div className="searchBar">
-			<RiSearch2Line />
-			<input type="text" name="search" placeholder="Search" />
-		</div>
+		<form className="searchBar" onSubmit={onSubmit}>
+			<button type="submit" className="btn" aria-label="search button">
+				<RiSearch2Line />
+			</button>
+			<input
+				type="text"
+				name="search"
+				placeholder="Search"
+				onChange={(e) => setSearchValue(e.target.value)}
+			/>
+		</form>
 	);
 };
