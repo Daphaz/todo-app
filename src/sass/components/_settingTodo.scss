@@ -1,0 +1,62 @@
+.container_set {
+	@extend %flex-center;
+	position: absolute;
+	font-size: 0.8em;
+	top: 0.35em;
+	right: 0.35em;
+	.btn_set {
+		cursor: pointer;
+		@extend %flex-center;
+		width: 1.2em;
+		height: 1.2em;
+		border-radius: 50%;
+		background-color: $white;
+		color: $black;
+		z-index: 2;
+	}
+	.item {
+		cursor: pointer;
+		@extend %flex-center;
+		position: absolute;
+		width: 1.5em;
+		height: 1.5em;
+		border-radius: 50%;
+		z-index: 1;
+	}
+	.label {
+		left: 2;
+		top: 2;
+		background-color: $black;
+		color: $white;
+		font-size: 0.6rem;
+		opacity: 0;
+	}
+	.done {
+		left: 2;
+		top: 2;
+		background-color: $black;
+		color: $white;
+		font-size: 0.6rem;
+		opacity: 0;
+	}
+	.toolkit {
+		width: 0%;
+		position: absolute;
+		top: 1.25em;
+		right: 1.25em;
+		background-color: $grey;
+		color: $black;
+		list-style: none;
+		border-radius: 10px;
+		overflow: hidden;
+		box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.15);
+		li {
+			width: 100%;
+			padding: 0.1em 0.1em;
+			&:hover {
+				background-color: $black;
+				color: $white;
+			}
+		}
+	}
+}

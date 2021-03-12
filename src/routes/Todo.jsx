@@ -1,5 +1,6 @@
 import React from "react";
 import { Layout } from "../components";
+import { SettingTodo } from "../components/SettingTodo";
 import { connect } from "react-redux";
 import { editToggle } from "../redux/actionCreator";
 import { AiFillEdit, AiFillSave } from "react-icons/ai";
@@ -48,6 +49,7 @@ const Todo = ({ todos, match, editToggle }) => {
 							exit={{ opacity: 0 }}
 							className="todo one_todo"
 							style={{ backgroundColor: todo[0].color }}>
+							<SettingTodo />
 							<textarea
 								name="text"
 								minLength="1"
