@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BiLabel, BiBadgeCheck, BiCog } from "react-icons/bi";
 import animejs from "animejs";
 
-export const SettingTodo = ({ idTodo, editLabel }) => {
+export const SettingTodo = ({ idTodo, editLabel, todoDone }) => {
 	const [toggle, setToggle] = useState(false);
 	const [toggleMenu, setToggleMenu] = useState(false);
 
@@ -131,7 +131,7 @@ export const SettingTodo = ({ idTodo, editLabel }) => {
 				</ul>
 				<BiLabel />
 			</div>
-			<div className="item done">
+			<div className="item done" onClick={() => todoDone(idTodo)}>
 				<BiBadgeCheck />
 			</div>
 		</div>

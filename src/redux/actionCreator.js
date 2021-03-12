@@ -3,6 +3,7 @@ import {
 	EDIT_TOGGLE,
 	REMOVE_CLASS_TODO,
 	EDIT_LABEL,
+	TODO_DONE,
 } from "./actionType";
 
 export const addTodo = (color, classAnimation, label) => ({
@@ -31,5 +32,12 @@ export const editLabel = (id, label, color) => ({
 		id,
 		label,
 		color,
+	},
+});
+
+export const todoDone = (id) => ({
+	type: TODO_DONE,
+	payload: {
+		id,
 	},
 });

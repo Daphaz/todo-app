@@ -2,10 +2,11 @@ import React from "react";
 import { Layout } from "../components";
 import { SettingTodo } from "../components/SettingTodo";
 import { connect } from "react-redux";
-import { editToggle, editLabel } from "../redux/actionCreator";
+import { editToggle, editLabel, todoDone } from "../redux/actionCreator";
 import { AiFillEdit, AiFillSave } from "react-icons/ai";
 import { Redirect } from "react-router-dom";
 import { motion } from "framer-motion";
+import { AiOutlineCheckCircle } from "react-icons/ai";
 
 const mapStateToProps = (state) => {
 	return {
@@ -17,12 +18,13 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		editToggle: (id) => dispatch(editToggle(id)),
 		editLabel: (id, label, color) => dispatch(editLabel(id, label, color)),
+		todoDone: (id) => dispatch(todoDone(id)),
 	};
 };
 
 const transition = { duration: 0.3, ease: [0.43, 0.13, 0.23, 0.96] };
 
-const Todo = ({ todos, match, editToggle, editLabel }) => {
+const Todo = ({ todos, match, editToggle, editLabel, todoDone }) => {
 	const id = parseInt(match.params.id);
 	const todo = todos.filter((t) => t.id === id);
 
@@ -50,7 +52,16 @@ const Todo = ({ todos, match, editToggle, editLabel }) => {
 							exit={{ opacity: 0 }}
 							className="todo one_todo"
 							style={{ backgroundColor: todo[0].color }}>
-							<SettingTodo idTodo={id} editLabel={editLabel} />
+							{todo[0].isDo && (
+								<div className="todoDone">
+									<AiOutlineCheckCircle />
+								</div>
+							)}
+							<SettingTodo
+								idTodo={id}
+								editLabel={editLabel}
+								todoDone={todoDone}
+							/>
 							<textarea
 								name="text"
 								minLength="1"

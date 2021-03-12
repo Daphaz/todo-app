@@ -3,6 +3,7 @@ import {
 	EDIT_TOGGLE,
 	REMOVE_CLASS_TODO,
 	EDIT_LABEL,
+	TODO_DONE,
 } from "./actionType";
 import { TODO } from "../shared/todo";
 import dayjs from "dayjs";
@@ -38,6 +39,12 @@ export const Reducer = (state = initialState, action) => {
 			return {
 				todos: state.todos.map((t) =>
 					t.id === id ? { ...t, color, label } : t
+				),
+			};
+		case TODO_DONE:
+			return {
+				todos: state.todos.map((t) =>
+					t.id === action.payload.id ? { ...t, isDo: !t.isDo } : t
 				),
 			};
 		default:

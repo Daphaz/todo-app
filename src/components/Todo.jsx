@@ -1,5 +1,10 @@
 import React from "react";
-import { AiFillEdit, AiFillSave, AiOutlineEye } from "react-icons/ai";
+import {
+	AiFillEdit,
+	AiFillSave,
+	AiOutlineEye,
+	AiOutlineCheckCircle,
+} from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 export const Todo = ({ item, editToggle }) => {
@@ -33,11 +38,19 @@ export const Todo = ({ item, editToggle }) => {
 				placeholder={item.placeholder}
 				disabled={!item.edit}></textarea>
 			<footer>
-				<div className="date_todo">{item.createdAt}</div>
-				<Link to={`/home/${item.id}`}>
-					<div className="show_todo">
-						<AiOutlineEye />
+				{item.isDo && (
+					<div className="todoDone">
+						<AiOutlineCheckCircle />
 					</div>
+				)}
+				<div className="date_todo">{item.createdAt}</div>
+				<Link
+					to={`/home/${item.id}`}
+					className="show_todo"
+					style={{
+						color: item.isDo ? "var(--white-color)" : "var(--black-color)",
+					}}>
+					<AiOutlineEye />
 				</Link>
 				<button
 					className="btn btn_edit"
