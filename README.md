@@ -1,6 +1,10 @@
 # Docket note
 > todo app using react & redux
 
+![screenshot vercel](/screenshot.png)
+
+## [Link of this project](https://todo-app-eight-self.vercel.app/home)
+
 ---
 
 ## For Use
