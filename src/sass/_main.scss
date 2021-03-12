@@ -1,0 +1,55 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html {
+	font-size: calc(1em + 1vw);
+}
+body {
+	background-color: $white;
+	color: $black;
+	font-family: $font;
+	min-height: 100vh;
+	overflow-x: hidden;
+}
+h1 {
+	font-size: 2em;
+	line-height: 100%;
+}
+h2 {
+	font-size: 1.5em;
+	line-height: 125%;
+}
+p {
+	font-size: 0.75em;
+	line-height: 150%;
+}
+.warpper {
+	margin: 0 1rem;
+}
+
+.grid_container {
+	display: grid;
+	grid-template-columns: 132px 1fr;
+	grid-template-rows: 70px 1fr 70px;
+	grid-template-areas:
+		"side header"
+		"side content"
+		"side footer";
+	min-height: 100vh;
+	@include media-max("768px") {
+		grid-template-columns: 80px 1fr;
+		grid-template-rows: 50px 1fr 50px;
+	}
+}
+
+.btn {
+	@extend %flex-center;
+	background-color: transparent;
+	outline: none;
+	border: none;
+	cursor: pointer;
+}

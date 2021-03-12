@@ -1,0 +1,20 @@
+:root {
+	--white-color: #fff;
+	--black-color: #31291d;
+	--grey-color: #bec5d7;
+	--yellow-color: #ffd19c;
+	--orange-color: #ffaa93;
+	--purple-color: #c0adff;
+	--blue-color: #9fdcfd;
+	--green-color: #dae0ae;
+}
+$white: var(--white-color);
+$black: var(--black-color);
+$grey: var(--grey-color);
+$yellow: var(--yellow-color);
+$orange: var(--orange-color);
+$purple: var(--purple-color);
+$blue: var(--blue-color);
+$green: var(--green-color);
+
+$font: "Rubik", sans-serif;

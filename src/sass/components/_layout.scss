@@ -1,0 +1,20 @@
+.content {
+	grid-area: content;
+	padding-left: 1.5rem;
+	padding-bottom: 33px;
+}
+.footer {
+	@extend %flex-align;
+	justify-content: space-between;
+	grid-area: footer;
+	font-size: 0.6em;
+	padding: 0 1em;
+	color: $black;
+	a {
+		color: inherit;
+	}
+	.copy {
+		@extend %flex-align;
+		height: 100%;
+	}
+}
